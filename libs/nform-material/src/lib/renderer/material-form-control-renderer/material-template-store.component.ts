@@ -40,17 +40,17 @@ const VALID_INPUTS = [
 })
 export class MaterialTemplateStoreComponent implements TemplateStore {
   // TODO: All queries are dynamic because they we're quickly migrated into the safe option, need to check if they can be static.
-  @ViewChild('boolean', { read: TemplateRef, static: false }) boolean: TemplateRef<MaterialStoreTemplateContext>;
-  @ViewChild('slideToggle', { static: false }) slideToggle: TemplateRef<MaterialStoreTemplateContext>;
-  @ViewChild('slider', { static: false }) slider: TemplateRef<MaterialStoreTemplateContext>;
-  @ViewChild('radio', { static: false }) radio: TemplateRef<MaterialStoreTemplateContext>;
-  @ViewChild('textarea', { static: false }) textarea: TemplateRef<MaterialStoreTemplateContext>;
-  @ViewChild('select', { static: false }) select: TemplateRef<MaterialStoreTemplateContext>;
-  @ViewChild('chips', { static: false }) chips: TemplateRef<MaterialStoreTemplateContext>;
-  @ViewChild('date', { static: false }) date: TemplateRef<MaterialStoreTemplateContext>;
-  @ViewChild('input', { static: false }) input: TemplateRef<MaterialStoreTemplateContext>;
-  @ViewChild('childForm', { static: false }) childForm: TemplateRef<MaterialStoreTemplateContext>;
-  @ViewChild('formArray', { static: false }) formArray: TemplateRef<MaterialStoreTemplateContext>;
+  @ViewChild('boolean', { read: TemplateRef }) boolean: TemplateRef<MaterialStoreTemplateContext>;
+  @ViewChild('slideToggle') slideToggle: TemplateRef<MaterialStoreTemplateContext>;
+  @ViewChild('slider') slider: TemplateRef<MaterialStoreTemplateContext>;
+  @ViewChild('radio') radio: TemplateRef<MaterialStoreTemplateContext>;
+  @ViewChild('textarea') textarea: TemplateRef<MaterialStoreTemplateContext>;
+  @ViewChild('select') select: TemplateRef<MaterialStoreTemplateContext>;
+  @ViewChild('chips') chips: TemplateRef<MaterialStoreTemplateContext>;
+  @ViewChild('date') date: TemplateRef<MaterialStoreTemplateContext>;
+  @ViewChild('input') input: TemplateRef<MaterialStoreTemplateContext>;
+  @ViewChild('childForm') childForm: TemplateRef<MaterialStoreTemplateContext>;
+  @ViewChild('formArray') formArray: TemplateRef<MaterialStoreTemplateContext>;
 
   private customTemplates: { [name: string]: TemplateRef<MaterialStoreTemplateContext>; } = {};
 

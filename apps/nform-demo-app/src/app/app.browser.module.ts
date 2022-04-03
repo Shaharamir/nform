@@ -1,5 +1,5 @@
 
-import { NgModule } from '@angular/core';
+import { NgModule, PLATFORM_ID } from '@angular/core';
 import { BrowserTransferStateModule, TransferState } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { REQUEST } from '@nguniversal/express-engine/tokens';
@@ -9,7 +9,6 @@ import 'hammerjs';
 
 import { AppComponent } from './app.component';
 import { AppModule, REQ_KEY } from './app.module';
-
 @NgModule({
   imports: [
     BrowserTransferStateModule,
@@ -17,7 +16,8 @@ import { AppModule, REQ_KEY } from './app.module';
     BrowserCacheModule.forRoot([
       {
         provide: CACHE,
-        useClass: MemoryCacheService
+        useClass: (MemoryCacheService),
+        deps: [PLATFORM_ID]
       }
     ]),
     AppModule

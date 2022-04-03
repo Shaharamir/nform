@@ -46,7 +46,7 @@ export class PblNFormModule {
   /**
    * Registers the module with and required services and with the default form control renderer.
    */
-  static forRoot(formComponent: DefaultRenderer): ModuleWithProviders {
+  static forRoot(formComponent: DefaultRenderer): ModuleWithProviders<PblNFormModule> {
     return {
       ngModule: PblNFormModule,
       providers: [
@@ -65,7 +65,7 @@ export class PblNFormModule {
    * Registers the module with the default form control renderer.
    * Use this when adding to child modules which requires a different renderer.
    */
-  static forChild(formComponent: DefaultRenderer): ModuleWithProviders {
+  static forChild(formComponent: DefaultRenderer): ModuleWithProviders<PblNFormModule> {
     return {
       ngModule: PblNFormModule,
       providers: [

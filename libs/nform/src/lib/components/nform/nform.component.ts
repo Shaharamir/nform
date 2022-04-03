@@ -100,7 +100,7 @@ export class NFormComponent<T = any> implements PropNotifyHandler,
 
   @ContentChildren(NFormOverrideDirective) overrides: QueryList<NFormOverrideDirective>;
 
-  @ViewChild('internalFormElement', { static: false }) internalFormElRef: ElementRef;
+  @ViewChild('internalFormElement') internalFormElRef: ElementRef;
 
   /**
    * The CSS class of the `form` element which is also the container of all rendered items.

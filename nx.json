@@ -18,6 +18,9 @@
       "tags": [
         "type:e2e-app",
         "parent:nform-demo-app"
+      ],
+      "implicitDependencies": [
+        "nform-demo-app"
       ]
     },
     "apps-nform-shared": {
@@ -165,5 +168,38 @@
         }
       ]
     }
-  ]
+  ],
+  "cli": {
+    "warnings": {
+      "typescriptMismatch": false,
+      "versionMismatch": false
+    },
+    "defaultCollection": "@nrwl/angular"
+  },
+  "defaultProject": "nform-demo-app",
+  "generators": {
+    "@nrwl/angular:application": {
+      "unitTestRunner": "jest",
+      "e2eTestRunner": "cypress"
+    },
+    "@nrwl/angular:library": {
+      "unitTestRunner": "jest"
+    },
+    "@nrwl/schematics:node-application": {
+      "framework": "express"
+    }
+  },
+  "tasksRunnerOptions": {
+    "default": {
+      "runner": "@nrwl/workspace/tasks-runners/default",
+      "options": {
+        "cacheableOperations": [
+          "build",
+          "lint",
+          "test",
+          "e2e"
+        ]
+      }
+    }
+  }
 }

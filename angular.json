@@ -32,9 +32,7 @@
               "apps/nform-demo-app/src/styles/main.scss",
               {
                 "input": "node_modules/shepherd.js/dist/css/shepherd.css",
-                "bundleName": "shepherd.css",
-                "lazy": true,
-                "inject": false
+                "bundleName": "shepherd.css"
               }
             ],
             "scripts": [
@@ -89,7 +87,8 @@
           "options": {
             "jestConfig": "apps/nform-demo-app/jest.config.js",
             "tsConfig": "apps/nform-demo-app/tsconfig.spec.json",
-            "setupFile": "apps/nform-demo-app/src/test-setup.ts"
+            "setupFile": "apps/nform-demo-app/src/test-setup.ts",
+            "passWithNoTests": true
           }
         },
         "lint": {
@@ -100,7 +99,10 @@
               "apps/nform-demo-app/tsconfig.spec.json",
               "apps/nform-demo-app/tsconfig.worker.json"
             ],
-            "exclude": ["**/node_modules/**"]
+            "exclude": [
+              "**/node_modules/**",
+              "!apps/nform-demo-app/**/*"
+            ]
           }
         },
         "server": {
@@ -150,8 +152,14 @@
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
-            "tsConfig": ["apps/nform-demo-app-e2e/tsconfig.e2e.json"],
-            "exclude": ["**/node_modules/**", "!apps/nform-demo-app-e2e/**"]
+            "tsConfig": [
+              "apps/nform-demo-app-e2e/tsconfig.e2e.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!apps/nform-demo-app-e2e/**/*",
+              "!apps/nform-demo-app-e2e/**/*"
+            ]
           }
         }
       }
@@ -163,7 +171,7 @@
       "prefix": "pbl",
       "schematics": {
         "@schematics/angular:component": {
-          "styleext": "scss"
+          "style": "scss"
         }
       },
       "architect": {
@@ -221,7 +229,8 @@
           "options": {
             "jestConfig": "libs/nform/jest.config.js",
             "tsConfig": "libs/nform/tsconfig.spec.json",
-            "setupFile": "libs/nform/src/test-setup.ts"
+            "setupFile": "libs/nform/src/test-setup.ts",
+            "passWithNoTests": true
           }
         },
         "lint": {
@@ -231,7 +240,10 @@
               "libs/nform/tsconfig.lib.json",
               "libs/nform/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**"]
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/nform/**/*"
+            ]
           }
         }
       }
@@ -296,7 +308,8 @@
           "options": {
             "jestConfig": "libs/nform-material/jest.config.js",
             "tsConfig": "libs/nform-material/tsconfig.spec.json",
-            "setupFile": "libs/nform-material/src/test-setup.ts"
+            "setupFile": "libs/nform-material/src/test-setup.ts",
+            "passWithNoTests": true
           }
         },
         "lint": {
@@ -306,7 +319,10 @@
               "libs/nform-material/tsconfig.lib.json",
               "libs/nform-material/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**"]
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/nform-material/**/*"
+            ]
           }
         }
       }
@@ -352,7 +368,8 @@
           "options": {
             "jestConfig": "libs/metap/jest.config.js",
             "tsConfig": "libs/metap/tsconfig.spec.json",
-            "setupFile": "libs/metap/src/test-setup.ts"
+            "setupFile": "libs/metap/src/test-setup.ts",
+            "passWithNoTests": true
           }
         },
         "lint": {
@@ -362,7 +379,10 @@
               "libs/metap/tsconfig.lib.json",
               "libs/metap/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**"]
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/metap/**/*"
+            ]
           }
         }
       },
@@ -409,7 +429,8 @@
           "options": {
             "jestConfig": "libs/utils/jest.config.js",
             "tsConfig": "libs/utils/tsconfig.spec.json",
-            "setupFile": "libs/utils/src/test-setup.ts"
+            "setupFile": "libs/utils/src/test-setup.ts",
+            "passWithNoTests": true
           }
         },
         "lint": {
@@ -419,7 +440,10 @@
               "libs/utils/tsconfig.lib.json",
               "libs/utils/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**"]
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/utils/**/*"
+            ]
           }
         }
       },
@@ -427,23 +451,6 @@
     }
   },
   "cli": {
-    "warnings": {
-      "typescriptMismatch": false,
-      "versionMismatch": false
-    },
-    "defaultCollection": "@nrwl/angular"
-  },
-  "defaultProject": "nform-demo-app",
-  "schematics": {
-    "@nrwl/angular:application": {
-      "unitTestRunner": "jest",
-      "e2eTestRunner": "cypress"
-    },
-    "@nrwl/angular:library": {
-      "unitTestRunner": "jest"
-    },
-    "@nrwl/schematics:node-application": {
-      "framework": "express"
-    }
+    "analytics": false
   }
 }
