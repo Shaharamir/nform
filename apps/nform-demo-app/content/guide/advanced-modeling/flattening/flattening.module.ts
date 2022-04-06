@@ -6,13 +6,12 @@ import { ExampleCommonModule } from '@pebula/apps/example-common';
 import { FlatteningExample } from './flattening.component';
 
 @NgModule({
-  declarations: [ FlatteningExample ],
-  imports: [
-    ExampleCommonModule,
-    PblNFormModule,
-  ],
-  exports: [ FlatteningExample ],
-  entryComponents: [ FlatteningExample ],
+    declarations: [FlatteningExample],
+    imports: [
+        ExampleCommonModule,
+        PblNFormModule,
+    ],
+    exports: [FlatteningExample]
 })
 @BindNgModule(FlatteningExample)
 export class FlatteningExampleModule { }

@@ -17,7 +17,6 @@ import {
 } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ComponentPortal, DomPortalHost } from '@angular/cdk/portal';
-import { MetaService } from '@ngx-meta/core';
 
 import { UnRx } from '@pebula/utils';
 import { PageFileAsset } from '@pebula-internal/webpack-markdown-pages';
@@ -48,7 +47,6 @@ export class MarkdownPageViewerComponent implements OnDestroy {
   private _portalHosts: DomPortalHost[] = [];
 
   constructor(private mdPages: MarkdownPagesService,
-              private meta: MetaService,
               private locationService: LocationService,
               route: ActivatedRoute,
               private _elementRef: ElementRef,

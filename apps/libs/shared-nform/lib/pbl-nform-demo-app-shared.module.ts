@@ -22,27 +22,26 @@ import { PblRowLayoutNformRenderer } from './row-layout-nform-renderer/row-layou
 import { PblNformCreateNotify, PblNformCreateNotifier } from './pbl-nform-create-notify/pbl-nform-create-notify.directive';
 
 @NgModule({
-  imports: [
-    CommonModule,
-    FlexModule, ExtendedModule,
-    PblDemoAppSharedModule,
-    PortalModule, MatButtonModule, MatProgressBarModule, MatToolbarModule, MatTooltipModule,
-    MatIconModule, MatMenuModule, MatSidenavModule, MatTabsModule, MatProgressSpinnerModule,
-    PblNformMaterialModule,
-  ],
-  declarations: [
-    PblExampleFormViewComponent,
-    PblRowLayoutNformRenderer,
-    PblNformCreateNotify,
-  ],
-  exports: [
-    FlexModule, ExtendedModule,
-    PblDemoAppSharedModule,
-    PblExampleFormViewComponent,
-    PblRowLayoutNformRenderer,
-    PblNformCreateNotify,
-  ],
-  entryComponents: [ PblExampleFormViewComponent, PblRowLayoutNformRenderer ],
+    imports: [
+        CommonModule,
+        FlexModule, ExtendedModule,
+        PblDemoAppSharedModule,
+        PortalModule, MatButtonModule, MatProgressBarModule, MatToolbarModule, MatTooltipModule,
+        MatIconModule, MatMenuModule, MatSidenavModule, MatTabsModule, MatProgressSpinnerModule,
+        PblNformMaterialModule,
+    ],
+    declarations: [
+        PblExampleFormViewComponent,
+        PblRowLayoutNformRenderer,
+        PblNformCreateNotify,
+    ],
+    exports: [
+        FlexModule, ExtendedModule,
+        PblDemoAppSharedModule,
+        PblExampleFormViewComponent,
+        PblRowLayoutNformRenderer,
+        PblNformCreateNotify,
+    ]
 })
 export class PblNformDemoAppSharedModule {
   static forRoot(): ModuleWithProviders<PblNformDemoAppSharedModule> {

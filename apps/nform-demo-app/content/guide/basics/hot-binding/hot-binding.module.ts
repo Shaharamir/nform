@@ -9,17 +9,16 @@ import { ExampleCommonModule } from '@pebula/apps/example-common';
 import { HotBindingExample } from './hot-binding.component';
 
 @NgModule({
-  declarations: [ HotBindingExample ],
-  imports: [
-    ExampleCommonModule,
-    PblNFormModule,
-    MatSlideToggleModule,
-  ],
-  providers: [
-    { provide: FORM_CONTROL_COMPONENT, useValue: PblRowLayoutNformRenderer },
-  ],
-  exports: [ HotBindingExample ],
-  entryComponents: [ HotBindingExample ],
+    declarations: [HotBindingExample],
+    imports: [
+        ExampleCommonModule,
+        PblNFormModule,
+        MatSlideToggleModule,
+    ],
+    providers: [
+        { provide: FORM_CONTROL_COMPONENT, useValue: PblRowLayoutNformRenderer },
+    ],
+    exports: [HotBindingExample]
 })
 @BindNgModule(HotBindingExample)
 export class HotBindingExampleModule { }

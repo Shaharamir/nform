@@ -7,14 +7,13 @@ import { ExampleCommonModule } from '@pebula/apps/example-common';
 import { GuideIntroExample } from './guide-intro.component';
 
 @NgModule({
-  declarations: [ GuideIntroExample ],
-  imports: [
-    ExampleCommonModule,
-    PblNFormModule,
-    MatButtonModule,
-  ],
-  exports: [ GuideIntroExample ],
-  entryComponents: [ GuideIntroExample ],
+    declarations: [GuideIntroExample],
+    imports: [
+        ExampleCommonModule,
+        PblNFormModule,
+        MatButtonModule,
+    ],
+    exports: [GuideIntroExample]
 })
 @BindNgModule(GuideIntroExample)
 export class GuideIntroExampleModule { }

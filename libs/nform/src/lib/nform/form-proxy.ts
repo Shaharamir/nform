@@ -190,5 +190,5 @@ function createFormArrayProxy<T = any>(context: FormProxyContext, formProp: Form
 
   const proxy: FormProxy<Array<T>> = [] as any;
   Object.defineProperty(proxy, THIS_FORM_CONTEXT, { value: context, enumerable: false, writable: false, configurable: false });
-  return new Proxy<FormProxy<Array<T>>>(proxy, arrayChangeHandler );
+  return new Proxy<FormProxy<Array<T>>>(proxy, arrayChangeHandler as any );
 }

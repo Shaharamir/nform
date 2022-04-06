@@ -6,13 +6,12 @@ import { ExampleCommonModule } from '@pebula/apps/example-common';
 import { ModelFormSyncExample } from './model-form-sync.component';
 
 @NgModule({
-  declarations: [ ModelFormSyncExample ],
-  imports: [
-    ExampleCommonModule,
-    PblNFormModule,
-  ],
-  exports: [ ModelFormSyncExample ],
-  entryComponents: [ ModelFormSyncExample ],
+    declarations: [ModelFormSyncExample],
+    imports: [
+        ExampleCommonModule,
+        PblNFormModule,
+    ],
+    exports: [ModelFormSyncExample]
 })
 @BindNgModule(ModelFormSyncExample)
 export class ModelFormSyncExampleModule { }

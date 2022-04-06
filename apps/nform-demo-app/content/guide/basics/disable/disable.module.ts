@@ -12,18 +12,17 @@ import { DisableExample } from './disable.component';
 import { DisableFormExample } from './disable-form.component';
 
 @NgModule({
-  declarations: [ DisableExample, DisableFormExample ],
-  imports: [
-    CommonModule,
-    ExampleCommonModule,
-    PblNFormModule,
-    MatFormFieldModule, MatSlideToggleModule, MatSelectModule,
-  ],
-  providers: [
-    { provide: FORM_CONTROL_COMPONENT, useValue: PblRowLayoutNformRenderer },
-  ],
-  exports: [ DisableExample, DisableFormExample ],
-  entryComponents: [ DisableExample, DisableFormExample ],
+    declarations: [DisableExample, DisableFormExample],
+    imports: [
+        CommonModule,
+        ExampleCommonModule,
+        PblNFormModule,
+        MatFormFieldModule, MatSlideToggleModule, MatSelectModule,
+    ],
+    providers: [
+        { provide: FORM_CONTROL_COMPONENT, useValue: PblRowLayoutNformRenderer },
+    ],
+    exports: [DisableExample, DisableFormExample]
 })
 @BindNgModule(DisableExample, DisableFormExample)
 export class DisableExampleModule { }

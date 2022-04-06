@@ -7,23 +7,22 @@ import { MaterialModule } from './material';
 import { GlobalMaterialFormControlDirective, MaterialTemplateStoreComponent, MaterialFormControlRenderer, storeContainer } from './renderer/index';
 
 @NgModule({
-  declarations: [
-    GlobalMaterialFormControlDirective,
-    MaterialTemplateStoreComponent,
-    MaterialFormControlRenderer
-  ],
-  imports: [
-    CommonModule,
-    ReactiveFormsModule,
-    MaterialModule,
-    PblNFormModule
-  ],
-  exports: [
-    GlobalMaterialFormControlDirective,
-    MaterialFormControlRenderer,
-    PblNFormModule
-  ],
-  entryComponents: [MaterialTemplateStoreComponent, MaterialFormControlRenderer]
+    declarations: [
+        GlobalMaterialFormControlDirective,
+        MaterialTemplateStoreComponent,
+        MaterialFormControlRenderer
+    ],
+    imports: [
+        CommonModule,
+        ReactiveFormsModule,
+        MaterialModule,
+        PblNFormModule
+    ],
+    exports: [
+        GlobalMaterialFormControlDirective,
+        MaterialFormControlRenderer,
+        PblNFormModule
+    ]
 })
 export class PblNformMaterialModule {
   constructor(injector: Injector, cfr: ComponentFactoryResolver) {

@@ -10,17 +10,16 @@ import { VirtualGroupsExample } from './virtual-groups.component';
 import { VirtualGroupsWizardExample } from './virtual-groups-wizard.component';
 
 @NgModule({
-  declarations: [ FormSplittingExample, VirtualGroupsExample, VirtualGroupsWizardExample ],
-  imports: [
-    ExampleCommonModule,
-    PblNFormModule,
-    MatTabsModule,
-  ],
-  exports: [ FormSplittingExample, VirtualGroupsExample, VirtualGroupsWizardExample ],
-  entryComponents: [ FormSplittingExample, VirtualGroupsExample, VirtualGroupsWizardExample ],
-  providers: [
-    { provide: FORM_CONTROL_COMPONENT, useValue: PblRowLayoutNformRenderer },
-  ],
+    declarations: [FormSplittingExample, VirtualGroupsExample, VirtualGroupsWizardExample],
+    imports: [
+        ExampleCommonModule,
+        PblNFormModule,
+        MatTabsModule,
+    ],
+    exports: [FormSplittingExample, VirtualGroupsExample, VirtualGroupsWizardExample],
+    providers: [
+        { provide: FORM_CONTROL_COMPONENT, useValue: PblRowLayoutNformRenderer },
+    ]
 })
 @BindNgModule(FormSplittingExample, VirtualGroupsExample, VirtualGroupsWizardExample)
 export class FormSplittingExampleModule { }

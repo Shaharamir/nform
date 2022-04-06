@@ -6,13 +6,12 @@ import { ExampleCommonModule } from '@pebula/apps/example-common';
 import { ArraysExample } from './arrays.component';
 
 @NgModule({
-  declarations: [ ArraysExample ],
-  imports: [
-    ExampleCommonModule,
-    PblNFormModule,
-  ],
-  exports: [ ArraysExample ],
-  entryComponents: [ ArraysExample ],
+    declarations: [ArraysExample],
+    imports: [
+        ExampleCommonModule,
+        PblNFormModule,
+    ],
+    exports: [ArraysExample]
 })
 @BindNgModule(ArraysExample)
 export class ArraysExampleModule { }

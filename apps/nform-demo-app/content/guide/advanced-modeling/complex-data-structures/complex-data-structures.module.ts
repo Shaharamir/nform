@@ -6,13 +6,12 @@ import { ExampleCommonModule } from '@pebula/apps/example-common';
 import { ComplexDataStructuresExample } from './complex-data-structures.component';
 
 @NgModule({
-  declarations: [ ComplexDataStructuresExample ],
-  imports: [
-    ExampleCommonModule,
-    PblNFormModule,
-  ],
-  exports: [ ComplexDataStructuresExample ],
-  entryComponents: [ ComplexDataStructuresExample ],
+    declarations: [ComplexDataStructuresExample],
+    imports: [
+        ExampleCommonModule,
+        PblNFormModule,
+    ],
+    exports: [ComplexDataStructuresExample]
 })
 @BindNgModule(ComplexDataStructuresExample)
 export class ComplexDataStructuresExampleModule { }

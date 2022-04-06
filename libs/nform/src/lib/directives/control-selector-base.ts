@@ -1,9 +1,12 @@
-import { SimpleChanges, OnChanges, ViewContainerRef, TemplateRef } from '@angular/core';
+import { SimpleChanges, OnChanges, ViewContainerRef, TemplateRef, Component, Inject, Injectable } from '@angular/core';
 import { isString } from '@pebula/utils';
 
 import { FormElementType } from '../types/index';
 import { NFormRecordRef } from '../nform/nform-record-ref';
 
+@Injectable({
+  providedIn: 'root'
+})
 export class ControlSelectorBase implements OnChanges {
   controlName: string | string[];
   vType: keyof FormElementType | Array<keyof FormElementType>;

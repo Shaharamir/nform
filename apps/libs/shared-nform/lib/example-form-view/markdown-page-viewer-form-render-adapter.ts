@@ -1,7 +1,6 @@
 import { take } from 'rxjs/operators';
 import { Type, Injectable } from '@angular/core';
 import { coerceBooleanProperty, coerceNumberProperty } from '@angular/cdk/coercion';
-import { MetaService } from '@ngx-meta/core';
 import { PageFileAsset } from '@pebula-internal/webpack-markdown-pages';
 import { ContentChunkViewComponent, MarkdownDynamicComponentPortal, MarkdownPageViewerRenderAdapter, MarkdownPageViewerRenderInstructions } from '@pebula/apps/shared';
 import { PblNformCreateNotifier } from '../pbl-nform-create-notify/pbl-nform-create-notify.directive';
@@ -31,13 +30,13 @@ export class MarkdownPageViewerFormRenderAdapter extends MarkdownPageViewerRende
     },
   ];
 
-  constructor(private meta: MetaService, private nformCreateNotifier: PblNformCreateNotifier) {
+  constructor(private nformCreateNotifier: PblNformCreateNotifier) {
     super();
   }
 
   beforeRenderPage(page?: PageFileAsset): void {
     const title = page ? `NForm: ${page.title}` : '';
-    this.meta.setTitle(title);
+    document.title = title;
   }
 
   beforeRenderComponent<T extends MarkdownDynamicComponentPortal>(instance: T, cmp: Type<T>, element: HTMLElement): void {

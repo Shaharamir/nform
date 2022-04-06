@@ -4,7 +4,8 @@ import { AppBrowserModule } from './app.browser.module';
 describe('AppBrowserModule', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [AppBrowserModule]
+      imports: [AppBrowserModule],
+      teardown: { destroyAfterEach: false },
     }).compileComponents();
   }));
 

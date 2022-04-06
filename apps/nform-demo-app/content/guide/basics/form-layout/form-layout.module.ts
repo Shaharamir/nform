@@ -10,15 +10,14 @@ import { HorizontalFormLayoutExample } from './horizontal-form-layout.component'
 import { FlexFormLayoutExample } from './flex-form-layout.component';
 
 @NgModule({
-  declarations: [ VerticalFormLayoutExample, HorizontalFormLayoutExample, FlexFormLayoutExample ],
-  imports: [
-    ReactiveFormsModule,
-    ExampleCommonModule,
-    PblNFormModule,
-    PblNformMaterialModule,
-  ],
-  exports: [ VerticalFormLayoutExample, HorizontalFormLayoutExample, FlexFormLayoutExample ],
-  entryComponents: [ VerticalFormLayoutExample, HorizontalFormLayoutExample, FlexFormLayoutExample ],
+    declarations: [VerticalFormLayoutExample, HorizontalFormLayoutExample, FlexFormLayoutExample],
+    imports: [
+        ReactiveFormsModule,
+        ExampleCommonModule,
+        PblNFormModule,
+        PblNformMaterialModule,
+    ],
+    exports: [VerticalFormLayoutExample, HorizontalFormLayoutExample, FlexFormLayoutExample]
 })
 @BindNgModule(VerticalFormLayoutExample, HorizontalFormLayoutExample, FlexFormLayoutExample)
 export class FormLayoutExampleModule { }

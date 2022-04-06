@@ -7,14 +7,13 @@ import { ExampleCommonModule } from '@pebula/apps/example-common';
 import { NformBasicsExample } from './nform-basics.component';
 
 @NgModule({
-  declarations: [ NformBasicsExample ],
-  imports: [
-    CommonModule,
-    ExampleCommonModule,
-    PblNFormModule,
-  ],
-  exports: [ NformBasicsExample ],
-  entryComponents: [ NformBasicsExample ],
+    declarations: [NformBasicsExample],
+    imports: [
+        CommonModule,
+        ExampleCommonModule,
+        PblNFormModule,
+    ],
+    exports: [NformBasicsExample]
 })
 @BindNgModule(NformBasicsExample)
 export class NformBasicsExampleModule { }

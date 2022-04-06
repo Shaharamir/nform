@@ -6,13 +6,12 @@ import { ExampleCommonModule } from '@pebula/apps/example-common';
 import { ChildFormsExample } from './child-forms.component';
 
 @NgModule({
-  declarations: [ ChildFormsExample ],
-  imports: [
-    ExampleCommonModule,
-    PblNFormModule,
-  ],
-  exports: [ ChildFormsExample ],
-  entryComponents: [ ChildFormsExample ],
+    declarations: [ChildFormsExample],
+    imports: [
+        ExampleCommonModule,
+        PblNFormModule,
+    ],
+    exports: [ChildFormsExample]
 })
 @BindNgModule(ChildFormsExample)
 export class ChildFormsExampleModule { }

@@ -56,8 +56,7 @@ export class ForFormArrayDirective extends NgForOf<NFormControlTemplateContext>
   implements OnChanges, DoCheck {
   // tslint:disable
   @Input('forFormArrayOf') fArray: FormArray;
-  @Input('forFormArrayTrackBy')
-  ngForTrackBy: TrackByFunction<NFormControlTemplateContext>;
+  @Input('forFormArrayTrackBy') trackBy: TrackByFunction<NFormControlTemplateContext>;
 
   @Input('forFormArrayNFormCmp') nFormCmp: NFormComponent;
   @Input('forFormArrayFGroup') fGroup: FormGroup;

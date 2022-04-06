@@ -25,21 +25,14 @@ export function parseExampleTsFile(fileName: string, content: string): ParsedPri
               throw new Error('Multiple examples in a single module are not supported.');
             }
             const [ selector, exampleMeta ] = decorator.expression.arguments;
-            const titleProp = exampleMeta.properties.find( p => p.name.text === 'title');
-
             primary = meta;
-            primary.selector = selector.text;
-            primary.secondaries = secondaries;
-
             primary.example = {
-              title: titleProp ? titleProp.initializer.text : primary.selector,
+              title: exampleMeta.properties.find(p => p.name?.text === 'title' ).initializer.text,
+              additionalFiles: exampleMeta.properties.find(p => p.name?.text === 'additionalFiles' )?.initializer.elements.map( e => e.text),
             };
 
-            const additionalFilesProp = exampleMeta.properties.find( p => p.name.text === 'additionalFiles');
-            if (additionalFilesProp && ts.isArrayLiteralExpression(additionalFilesProp.initializer)) {
-              primary.additionalFiles = additionalFilesProp.initializer.elements.map((literal: ts.StringLiteral) => literal.text);
-            }
-
+            primary.secondaries = secondaries;
+            primary.selector = selector.text;
           } else if (decorator.expression.expression.text === 'Component') {
             for (const arg of decorator.expression.arguments) {
               for (const prop of arg.properties) {
@@ -84,15 +77,12 @@ export function createInitialExampleFileAssets(primaryFileName: string, primary:
   const primaryAsset = createExampleFileAsset(primary.component, Path.basename(primaryFileName), primary.example.title);
   assets.push(primaryAsset, ...createTemplateAndStyleExampleFileAsset(primary));
 
+  if (primary.example.additionalFiles?.length) {
+    assets.push(...primary.example.additionalFiles.map( f => createExampleFileAsset('', Path.basename(f)) ));
+  }
   if (Array.isArray(primary.secondaries)) {
     for (const sec of primary.secondaries) {
       assets.push(...createTemplateAndStyleExampleFileAsset(sec));
-    }
-  }
-
-  if (Array.isArray(primary.additionalFiles)) {
-    for (const additional of primary.additionalFiles) {
-      assets.push(createExampleFileAsset(primary.component, additional));
     }
   }
   return assets;

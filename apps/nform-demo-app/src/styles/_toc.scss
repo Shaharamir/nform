@@ -1,13 +1,14 @@
+@use '@angular/material' as mat;
 $primary: map-get($pbl-shell-theme, primary);
 $accent: map-get($pbl-shell-theme, accent);
 $warn: map-get($pbl-shell-theme, warn);
 $background: map-get($pbl-shell-theme, background);
 $foreground: map-get($pbl-shell-theme, foreground);
 
-$link: mat-color($foreground, secondary-text);
-$linkSelected: mat-color($primary);
+$link: mat.get-color-from-palette($foreground, secondary-text);
+$linkSelected: mat.get-color-from-palette($primary);
 $linkHover: lighten($linkSelected, 10);
-$borderColor: mat-color($foreground, divider);
+$borderColor: mat.get-color-from-palette($foreground, divider);
 
 .pbl-demo-app-style .pbl-content-toc-inner {
   .pbl-content-toc-heading.secondary {

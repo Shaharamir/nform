@@ -6,13 +6,12 @@ import { ExampleCommonModule } from '@pebula/apps/example-common';
 import { GuideIndexExample } from './guide-index.component';
 
 @NgModule({
-  declarations: [ GuideIndexExample ],
-  imports: [
-    ExampleCommonModule,
-    PblNFormModule,
-  ],
-  exports: [ GuideIndexExample ],
-  entryComponents: [ GuideIndexExample ],
+    declarations: [GuideIndexExample],
+    imports: [
+        ExampleCommonModule,
+        PblNFormModule,
+    ],
+    exports: [GuideIndexExample]
 })
 @BindNgModule(GuideIndexExample)
 export class GuideIndexExampleModule { }

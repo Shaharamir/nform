@@ -147,7 +147,7 @@ export class LocationService {
       }
 
       const url = [...urlSegments, ...segments].join('/');
-      this.router.navigateByUrl(url, { fragment: anchor.hash });
+      this.router.navigateByUrl(url); //TODO: { fragment: anchor.hash }
       return false;
     }
 

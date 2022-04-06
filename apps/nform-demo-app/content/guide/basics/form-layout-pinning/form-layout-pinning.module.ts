@@ -7,14 +7,13 @@ import { ExampleCommonModule } from '@pebula/apps/example-common';
 import { FormLayoutPinningExample } from './form-layout-pinning.component';
 
 @NgModule({
-  declarations: [ FormLayoutPinningExample ],
-  imports: [
-    ExampleCommonModule,
-    PblNFormModule,
-    PblNformMaterialModule,
-  ],
-  exports: [ FormLayoutPinningExample ],
-  entryComponents: [ FormLayoutPinningExample ],
+    declarations: [FormLayoutPinningExample],
+    imports: [
+        ExampleCommonModule,
+        PblNFormModule,
+        PblNformMaterialModule,
+    ],
+    exports: [FormLayoutPinningExample]
 })
 @BindNgModule(FormLayoutPinningExample)
 export class FormLayoutPinningExampleModule { }

@@ -57,28 +57,24 @@ const DECLARATION_EXPORT = [
 ]
 
 @NgModule({
-  declarations: [
-    DECLARATION_EXPORT,
-    PIPES_EXPORT,
-  ],
-  imports: [
-    CommonModule,
-    RouterModule,
-    PortalModule,
-    MatFormFieldModule, MatInputModule, MatIconModule, MatButtonModule, MatMenuModule, MatCheckboxModule, MatListModule, MatTabsModule, MatToolbarModule, MatTooltipModule, MatProgressBarModule, MatProgressSpinnerModule,
-    FlexModule, ExtendedModule,
-
-    PblNFormModule,
-
-    PblTocModule,
-  ],
-  exports: [
-    DECLARATION_EXPORT,
-    PIPES_EXPORT,
-
-    PblNFormModule
-  ],
-  entryComponents: [ ExampleViewComponent, ContentChunkViewComponent ],
+    declarations: [
+        DECLARATION_EXPORT,
+        PIPES_EXPORT,
+    ],
+    imports: [
+        CommonModule,
+        RouterModule,
+        PortalModule,
+        MatFormFieldModule, MatInputModule, MatIconModule, MatButtonModule, MatMenuModule, MatCheckboxModule, MatListModule, MatTabsModule, MatToolbarModule, MatTooltipModule, MatProgressBarModule, MatProgressSpinnerModule,
+        FlexModule, ExtendedModule,
+        PblNFormModule,
+        PblTocModule,
+    ],
+    exports: [
+        DECLARATION_EXPORT,
+        PIPES_EXPORT,
+        PblNFormModule
+    ]
 })
 export class PblDemoAppSharedModule {
 

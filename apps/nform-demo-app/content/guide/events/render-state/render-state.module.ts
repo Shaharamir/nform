@@ -8,18 +8,17 @@ import { ExampleCommonModule } from '@pebula/apps/example-common';
 import { RenderStateExample } from './render-state.component';
 
 @NgModule({
-  declarations: [ RenderStateExample ],
-  imports: [
-    CommonModule,
-    ExampleCommonModule,
-    PblNFormModule,
-    MatProgressSpinnerModule,
-  ],
-  exports: [ RenderStateExample ],
-  entryComponents: [ RenderStateExample ],
-  providers: [
-    { provide: FORM_CONTROL_COMPONENT, useValue: PblRowLayoutNformRenderer },
-  ],
+    declarations: [RenderStateExample],
+    imports: [
+        CommonModule,
+        ExampleCommonModule,
+        PblNFormModule,
+        MatProgressSpinnerModule,
+    ],
+    exports: [RenderStateExample],
+    providers: [
+        { provide: FORM_CONTROL_COMPONENT, useValue: PblRowLayoutNformRenderer },
+    ]
 })
 @BindNgModule(RenderStateExample)
 export class RenderStateExampleModule { }

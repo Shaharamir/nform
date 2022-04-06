@@ -6,13 +6,12 @@ import { ExampleCommonModule } from '@pebula/apps/example-common';
 import { ValidationExample } from './validation.component';
 
 @NgModule({
-  declarations: [ ValidationExample ],
-  imports: [
-    ExampleCommonModule,
-    PblNFormModule,
-  ],
-  exports: [ ValidationExample ],
-  entryComponents: [ ValidationExample ],
+    declarations: [ValidationExample],
+    imports: [
+        ExampleCommonModule,
+        PblNFormModule,
+    ],
+    exports: [ValidationExample]
 })
 @BindNgModule(ValidationExample)
 export class ValidationExampleModule { }

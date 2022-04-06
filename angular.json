@@ -1,8 +1,133 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "cli": {
+    "analytics": false
+  },
   "version": 1,
-  "newProjectRoot": "",
   "projects": {
+    "metap": {
+      "root": "libs/metap",
+      "sourceRoot": "libs/metap/src",
+      "projectType": "library",
+      "architect": {
+        "build": {
+          "builder": "ng-cli-packagr-tasks:build",
+          "options": {
+            "tsConfig": "libs/metap/tsconfig.lib.json",
+            "project": "libs/metap/ng-package.json",
+            "tasks": {
+              "config": "tools/ng-packagr.transformers/metap.transformers.ts",
+              "data": {
+                "copyFile": {
+                  "assets": [
+                    {
+                      "glob": "README.md",
+                      "input": "./libs/metap",
+                      "output": "dist/@pebula/metap"
+                    },
+                    {
+                      "glob": "LICENSE",
+                      "input": ".",
+                      "output": "dist/@pebula/metap"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "configurations": {
+            "production": {
+              "project": "libs/metap/ng-package.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/metap/jest.config.js",
+            "tsConfig": "libs/metap/tsconfig.spec.json",
+            "setupFile": "libs/metap/src/test-setup.ts",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "schematics": {}
+    },
+    "nform": {
+      "root": "libs/nform",
+      "sourceRoot": "libs/nform/src",
+      "projectType": "library",
+      "prefix": "pbl",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "architect": {
+        "build": {
+          "builder": "ng-cli-packagr-tasks:build",
+          "options": {
+            "tsConfig": "libs/nform/tsconfig.lib.json",
+            "project": "libs/nform/ng-package.json",
+            "tasks": {
+              "config": "tools/ng-packagr.transformers/nform.transformers.ts",
+              "data": {
+                "copyFile": {
+                  "assets": [
+                    {
+                      "glob": "README.md",
+                      "input": ".",
+                      "output": "dist/@pebula/nform"
+                    },
+                    {
+                      "glob": "LICENSE",
+                      "input": ".",
+                      "output": "dist/@pebula/nform"
+                    }
+                  ]
+                },
+                "sassBundle": {
+                  "entries": [
+                    {
+                      "glob": "_theming.scss",
+                      "input": "libs/nform",
+                      "output": "dist/@pebula/nform"
+                    }
+                  ]
+                },
+                "sassCompile": {
+                  "entries": [
+                    {
+                      "glob": "*.scss",
+                      "input": "libs/nform/src/themes/prebuilt",
+                      "output": "dist/@pebula/nform/themes"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "configurations": {
+            "production": {
+              "project": "libs/nform/ng-package.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/nform/jest.config.js",
+            "tsConfig": "libs/nform/tsconfig.spec.json",
+            "setupFile": "libs/nform/src/test-setup.ts",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "tags": [
+        "name:nform",
+        "type:lib"
+      ]
+    },
     "nform-demo-app": {
       "root": "apps/nform-demo-app/",
       "sourceRoot": "apps/nform-demo-app/src",
@@ -91,20 +216,6 @@
             "passWithNoTests": true
           }
         },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "apps/nform-demo-app/tsconfig.app.json",
-              "apps/nform-demo-app/tsconfig.spec.json",
-              "apps/nform-demo-app/tsconfig.worker.json"
-            ],
-            "exclude": [
-              "**/node_modules/**",
-              "!apps/nform-demo-app/**/*"
-            ]
-          }
-        },
         "server": {
           "builder": "./tools/ngx-build-plus.server:server",
           "options": {
@@ -129,7 +240,11 @@
             }
           }
         }
-      }
+      },
+      "tags": [
+        "type:app",
+        "nform-demo-app"
+      ]
     },
     "nform-demo-app-e2e": {
       "root": "apps/nform-demo-app-e2e",
@@ -148,105 +263,15 @@
               "devServerTarget": "nform-demo-app:serve:production"
             }
           }
-        },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "apps/nform-demo-app-e2e/tsconfig.e2e.json"
-            ],
-            "exclude": [
-              "**/node_modules/**",
-              "!apps/nform-demo-app-e2e/**/*",
-              "!apps/nform-demo-app-e2e/**/*"
-            ]
-          }
-        }
-      }
-    },
-    "nform": {
-      "root": "libs/nform",
-      "sourceRoot": "libs/nform/src",
-      "projectType": "library",
-      "prefix": "pbl",
-      "schematics": {
-        "@schematics/angular:component": {
-          "style": "scss"
         }
       },
-      "architect": {
-        "build": {
-          "builder": "ng-cli-packagr-tasks:build",
-          "options": {
-            "tsConfig": "libs/nform/tsconfig.lib.json",
-            "project": "libs/nform/ng-package.json",
-            "tasks": {
-              "config": "tools/ng-packagr.transformers/nform.transformers.ts",
-              "data": {
-                "copyFile": {
-                  "assets": [
-                    {
-                      "glob": "README.md",
-                      "input": ".",
-                      "output": "dist/@pebula/nform"
-                    },
-                    {
-                      "glob": "LICENSE",
-                      "input": ".",
-                      "output": "dist/@pebula/nform"
-                    }
-                  ]
-                },
-                "sassBundle": {
-                  "entries": [
-                    {
-                      "glob": "_theming.scss",
-                      "input": "libs/nform",
-                      "output": "dist/@pebula/nform"
-                    }
-                  ]
-                },
-                "sassCompile": {
-                  "entries": [
-                    {
-                      "glob": "*.scss",
-                      "input": "libs/nform/src/themes/prebuilt",
-                      "output": "dist/@pebula/nform/themes"
-                    }
-                  ]
-                }
-              }
-            }
-          },
-          "configurations": {
-            "production": {
-              "project": "libs/nform/ng-package.prod.json"
-            }
-          }
-        },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "options": {
-            "jestConfig": "libs/nform/jest.config.js",
-            "tsConfig": "libs/nform/tsconfig.spec.json",
-            "setupFile": "libs/nform/src/test-setup.ts",
-            "passWithNoTests": true
-          }
-        },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "libs/nform/tsconfig.lib.json",
-              "libs/nform/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**",
-              "!libs/nform/**/*"
-            ]
-          }
-        }
-      }
+      "tags": [
+        "type:e2e-app",
+        "parent:nform-demo-app"
+      ],
+      "implicitDependencies": [
+        "nform-demo-app"
+      ]
     },
     "nform-material": {
       "root": "libs/nform-material",
@@ -311,82 +336,13 @@
             "setupFile": "libs/nform-material/src/test-setup.ts",
             "passWithNoTests": true
           }
-        },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "libs/nform-material/tsconfig.lib.json",
-              "libs/nform-material/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**",
-              "!libs/nform-material/**/*"
-            ]
-          }
-        }
-      }
-    },
-    "metap": {
-      "root": "libs/metap",
-      "sourceRoot": "libs/metap/src",
-      "projectType": "library",
-      "architect": {
-        "build": {
-          "builder": "ng-cli-packagr-tasks:build",
-          "options": {
-            "tsConfig": "libs/metap/tsconfig.lib.json",
-            "project": "libs/metap/ng-package.json",
-            "tasks": {
-              "config": "tools/ng-packagr.transformers/metap.transformers.ts",
-              "data": {
-                "copyFile": {
-                  "assets": [
-                    {
-                      "glob": "README.md",
-                      "input": "./libs/metap",
-                      "output": "dist/@pebula/metap"
-                    },
-                    {
-                      "glob": "LICENSE",
-                      "input": ".",
-                      "output": "dist/@pebula/metap"
-                    }
-                  ]
-                }
-              }
-            }
-          },
-          "configurations": {
-            "production": {
-              "project": "libs/metap/ng-package.prod.json"
-            }
-          }
-        },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "options": {
-            "jestConfig": "libs/metap/jest.config.js",
-            "tsConfig": "libs/metap/tsconfig.spec.json",
-            "setupFile": "libs/metap/src/test-setup.ts",
-            "passWithNoTests": true
-          }
-        },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "libs/metap/tsconfig.lib.json",
-              "libs/metap/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**",
-              "!libs/metap/**/*"
-            ]
-          }
         }
       },
-      "schematics": {}
+      "tags": [
+        "name:material",
+        "type:child-lib",
+        "parent:nform"
+      ]
     },
     "utils": {
       "root": "libs/utils",
@@ -432,25 +388,13 @@
             "setupFile": "libs/utils/src/test-setup.ts",
             "passWithNoTests": true
           }
-        },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "libs/utils/tsconfig.lib.json",
-              "libs/utils/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**",
-              "!libs/utils/**/*"
-            ]
-          }
         }
       },
-      "schematics": {}
+      "schematics": {},
+      "tags": [
+        "name:utils",
+        "type:lib"
+      ]
     }
-  },
-  "cli": {
-    "analytics": false
   }
 }

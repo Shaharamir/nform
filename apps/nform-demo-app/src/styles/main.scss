@@ -1,12 +1,13 @@
+@use '@angular/material' as mat;
 @import './variables';
 
 $typography-config: shell-typography-config();
-@include mat-core($typography-config);
+@include mat.core($typography-config);
 
 @include pbl-ngrid-typography($typography-config);
 
 // Include the default theme styles.
-@include angular-material-theme($pbl-shell-theme);
+@include mat.all-component-themes($pbl-shell-theme);
 @include pbl-shell-app-theme($pbl-shell-theme, $typography-config);
 
 // @include pbl-ngrid-theme($pbl-shell-theme);

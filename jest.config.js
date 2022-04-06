@@ -1,7 +1,9 @@
+const { getJestProjects } = require('@nrwl/jest');
+
 function isNgCliTestRun() {
-  const idx = process.argv.findIndex( a => a === 'test');
+  const idx = process.argv.findIndex((a) => a === 'test');
   if (idx > 0) {
-    return process.argv[idx-1].endsWith('bin/ng');
+    return process.argv[idx - 1].endsWith('bin/ng');
   }
   return false;
 }
@@ -16,7 +18,7 @@ const jestOptions = {
   rootDir: '.',
   testMatch: ['**/+(*.)+(spec|test).+(ts|js)?(x)'],
   transform: {
-    '^.+\\.(ts|js|html)$': 'ts-jest'
+    '^.+\\.(ts|js|html)$': 'ts-jest',
   },
   resolver: '@nrwl/jest/plugins/resolver',
   moduleFileExtensions: ['ts', 'js', 'html'],
@@ -24,9 +26,7 @@ const jestOptions = {
 };
 
 if (!isNgCliTestRun()) {
-  jestOptions.setupFilesAfterEnv = [
-    'jest-preset-angular/setupJest.js',
-  ];
+  jestOptions.setupFilesAfterEnv = ['jest-preset-angular/setupJest.js'];
 }
 
 module.exports = jestOptions;

@@ -11,21 +11,20 @@ import { ExampleCommonModule } from '@pebula/apps/example-common';
 import { FieldSyncRedrawExample } from './field-sync-redraw.component';
 
 @NgModule({
-  declarations: [ FieldSyncRedrawExample ],
-  imports: [
-    CommonModule,
-    ExampleCommonModule,
-    PblNFormModule,
-    MatFormFieldModule,
-    MatSelectModule,
-    MatButtonModule,
-    MatProgressSpinnerModule,
-  ],
-  exports: [ FieldSyncRedrawExample ],
-  entryComponents: [ FieldSyncRedrawExample ],
-  providers: [
-    { provide: FORM_CONTROL_COMPONENT, useValue: PblRowLayoutNformRenderer },
-  ],
+    declarations: [FieldSyncRedrawExample],
+    imports: [
+        CommonModule,
+        ExampleCommonModule,
+        PblNFormModule,
+        MatFormFieldModule,
+        MatSelectModule,
+        MatButtonModule,
+        MatProgressSpinnerModule,
+    ],
+    exports: [FieldSyncRedrawExample],
+    providers: [
+        { provide: FORM_CONTROL_COMPONENT, useValue: PblRowLayoutNformRenderer },
+    ]
 })
 @BindNgModule(FieldSyncRedrawExample)
 export class FieldSyncRedrawExampleModule { }

@@ -19,7 +19,8 @@
       "@pebula/nform/lib/*": ["libs/nform/src/lib/*"],
       "@pebula/nform-material/lib/*": ["libs/nform-material/src/lib/*"],
       "@pebula/metap/internal/lib/*": ["libs/metap/internal/src/lib/*"],
-      "@pebula/*": ["libs/*/src/index.ts", "libs/*"]
+      "@pebula/*": ["libs/*/src/index.ts", "libs/*"],
+      "@angular/*": ["./node_modules/@angular/*"]
     },
     "rootDir": "."
   },

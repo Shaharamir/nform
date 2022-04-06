@@ -4,6 +4,6 @@ describe('nform-demo-app', () => {
   beforeEach(() => cy.visit('/'));
 
   it('should display welcome message', () => {
-    getGreeting().contains('NForm');
+    cy.get('span').contains('Form');
   });
 });

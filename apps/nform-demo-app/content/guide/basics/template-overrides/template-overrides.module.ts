@@ -10,15 +10,14 @@ import { TemplateOverridesExample } from './template-overrides.component';
 import { ImperativeExample } from './imperative.component';
 
 @NgModule({
-  declarations: [ TemplateOverridesExample, ImperativeExample ],
-  imports: [
-    ExampleCommonModule,
-    ReactiveFormsModule,
-    PblNFormModule,
-    MatButtonToggleModule, MatInputModule,
-  ],
-  exports: [ TemplateOverridesExample, ImperativeExample ],
-  entryComponents: [ TemplateOverridesExample, ImperativeExample ],
+    declarations: [TemplateOverridesExample, ImperativeExample],
+    imports: [
+        ExampleCommonModule,
+        ReactiveFormsModule,
+        PblNFormModule,
+        MatButtonToggleModule, MatInputModule,
+    ],
+    exports: [TemplateOverridesExample, ImperativeExample]
 })
 @BindNgModule(TemplateOverridesExample, ImperativeExample)
 export class TemplateOverridesExampleModule { }

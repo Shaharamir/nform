@@ -6,16 +6,15 @@ import { ExampleCommonModule } from '@pebula/apps/example-common';
 import { BeforeRenderExample } from './before-render.component';
 
 @NgModule({
-  declarations: [ BeforeRenderExample ],
-  imports: [
-    ExampleCommonModule,
-    PblNFormModule,
-  ],
-  exports: [ BeforeRenderExample ],
-  entryComponents: [ BeforeRenderExample ],
-  providers: [
-    { provide: FORM_CONTROL_COMPONENT, useValue: PblRowLayoutNformRenderer },
-  ],
+    declarations: [BeforeRenderExample],
+    imports: [
+        ExampleCommonModule,
+        PblNFormModule,
+    ],
+    exports: [BeforeRenderExample],
+    providers: [
+        { provide: FORM_CONTROL_COMPONENT, useValue: PblRowLayoutNformRenderer },
+    ]
 })
 @BindNgModule(BeforeRenderExample)
 export class BeforeRenderExampleModule { }

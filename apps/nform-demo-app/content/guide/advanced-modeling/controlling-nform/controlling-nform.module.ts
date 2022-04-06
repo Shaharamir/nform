@@ -6,13 +6,12 @@ import { ExampleCommonModule } from '@pebula/apps/example-common';
 import { ControllingNFormExample } from './controlling-nform.component';
 
 @NgModule({
-  declarations: [ ControllingNFormExample ],
-  imports: [
-    ExampleCommonModule,
-    PblNFormModule,
-  ],
-  exports: [ ControllingNFormExample ],
-  entryComponents: [ ControllingNFormExample ],
+    declarations: [ControllingNFormExample],
+    imports: [
+        ExampleCommonModule,
+        PblNFormModule,
+    ],
+    exports: [ControllingNFormExample]
 })
 @BindNgModule(ControllingNFormExample)
 export class ControllingNFormExampleModule { }

@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule, HAMMER_GESTURE_CONFIG, makeStateKey } from '@angular/platform-browser';
+import { BrowserModule, makeStateKey } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
@@ -7,10 +7,6 @@ import { FlexModule } from '@angular/flex-layout/flex';
 import { ExtendedModule } from '@angular/flex-layout/extended';
 import { Angulartics2Module } from 'angulartics2';
 import { TransferHttpCacheModule } from '@nguniversal/common';
-import { MetaModule } from '@ngx-meta/core';
-import { CacheModule } from '@ngx-cache/core';
-
-import { GestureConfig } from '@angular/material/core';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatMenuModule } from '@angular/material/menu';
@@ -64,8 +60,6 @@ export const REQ_KEY = makeStateKey<string>('req');
     BrowserAnimationsModule,
     FlexModule,
     ExtendedModule,
-    MetaModule.forRoot(),
-    CacheModule.forRoot(),
     NxModule.forRoot(),
     PblDemoAppSharedModule,
     AppContentChunksModule,
@@ -99,7 +93,6 @@ export const REQ_KEY = makeStateKey<string>('req');
     PblNformMaterialModule.forRoot(),
   ],
   providers: [
-    { provide: HAMMER_GESTURE_CONFIG, useClass: GestureConfig },
     { provide: CONTENT_CHUNKS_COMPONENTS, useValue: APP_CONTENT_CHUNKS },
     {
       provide: EXAMPLE_COMPONENTS_TOKEN,

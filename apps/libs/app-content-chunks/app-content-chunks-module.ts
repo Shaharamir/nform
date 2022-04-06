@@ -32,15 +32,14 @@ export const APP_CONTENT_CHUNKS: {[key: string]: LiveExample} = {
 };
 
 @NgModule({
-  declarations: APP_CONTENT_CHUNKS_LIST,
-  entryComponents: APP_CONTENT_CHUNKS_LIST,
-  imports: [
-    CommonModule,
-    FlexModule,
-    ExtendedModule,
-    PblNFormModule,
-    PblDemoAppSharedModule,
-    ExampleMaterialModule,
-  ]
+    declarations: APP_CONTENT_CHUNKS_LIST,
+    imports: [
+        CommonModule,
+        FlexModule,
+        ExtendedModule,
+        PblNFormModule,
+        PblDemoAppSharedModule,
+        ExampleMaterialModule,
+    ]
 })
 export class AppContentChunksModule { }
