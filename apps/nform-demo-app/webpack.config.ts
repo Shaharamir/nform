@@ -65,8 +65,8 @@ function updateWebpackConfig(webpackConfig: Configuration): Configuration {
     'E>': 'error icon',
   }};
 
-  const NFORMS_CONTENT_MAPPING_FILE = 'nforms-content-mapping.json';
-  webpackConfig.plugins.push(new PebulaDynamicDictionaryWebpackPlugin(NFORMS_CONTENT_MAPPING_FILE));
+  const NFORM_CONTENT_MAPPING_FILE = 'nform-content-mapping.json';
+  webpackConfig.plugins.push(new PebulaDynamicDictionaryWebpackPlugin(NFORM_CONTENT_MAPPING_FILE));
 
   webpackConfig.plugins.push(new MarkdownPagesWebpackPlugin({
     context: __dirname,
@@ -113,7 +113,7 @@ function updateWebpackConfig(webpackConfig: Configuration): Configuration {
     };
     const gitInfo = await simplegit().log({ n: "1", format});
     return {
-      NFORMS_CONTENT_MAPPING_FILE: JSON.stringify(NFORMS_CONTENT_MAPPING_FILE),
+      NFORM_CONTENT_MAPPING_FILE: JSON.stringify(NFORM_CONTENT_MAPPING_FILE),
       ANGULAR_VERSION: JSON.stringify(angular.version),
       CDK_VERSION: JSON.stringify(cdk.version),
       LIB_VERSION: JSON.stringify(nform.version),

@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import type { DynamicExportedObject } from '@pebula-internal/webpack-dynamic-dictionary';
 
-declare const NFORMS_CONTENT_MAPPING_FILE: string;
+declare const NFORM_CONTENT_MAPPING_FILE: string;
 
 @Injectable({ providedIn: 'root' })
 export class ContentMapService {
@@ -11,7 +11,7 @@ export class ContentMapService {
   get getMapping(): Promise<DynamicExportedObject> {
     if (!this.mapping) {
       if (!this.fetching) {
-        this.fetching = this.httpClient.get<DynamicExportedObject>(NFORMS_CONTENT_MAPPING_FILE + `?dt=${Date.now()}`)
+        this.fetching = this.httpClient.get<DynamicExportedObject>(NFORM_CONTENT_MAPPING_FILE + `?dt=${Date.now()}`)
           .pipe(
             tap( mapping => {
               this.mapping = mapping;
